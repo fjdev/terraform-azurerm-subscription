@@ -1,6 +1,11 @@
-output "id" {
+output "subscription_id" {
   value       = azurerm_subscription.subscription.id
   description = "The Resource ID of the Alias."
+}
+
+output "subscription_name" {
+  value       = azurerm_subscription.subscription.subscription_name
+  description = "The Name of the Alias."
 }
 
 output "tenant_id" {
