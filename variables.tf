@@ -1,5 +1,6 @@
 variable "subscription_name" {
   type        = string
+  default     = null
   description = "(Required) The Name of the Subscription. This is the Display Name in the portal."
 }
 
@@ -34,37 +35,13 @@ variable "tags" {
 }
 
 variable "subscription_type" {
-  type        = string
-  default     = "ea"
-  description = "(Optional) The type of the Subscription. Possible values are 'ea', 'mca', 'mpa'. Default is 'ea'."
-}
-
-variable "billing_account_name" {
-  type        = string
+  type = map(object({
+    billing_account_name    = optional(string)
+    enrollment_account_name = optional(string)
+    billing_profile_name    = optional(string)
+    invoice_section_name    = optional(string)
+    customer_name           = optional(string)
+  }))
   default     = null
-  description = "(Optional) The Billing Account Name. Used for all Subscription Types."
-}
-
-variable "enrollment_account_name" {
-  type        = string
-  default     = null
-  description = "(Optional) The Enrollment Account Name in the above Enterprise Account. Required for 'ea' Subscription Type."
-}
-
-variable "billing_profile_name" {
-  type        = string
-  default     = null
-  description = "(Optional) The Billing Profile Name in the above Billing Account. Required for 'mca' Subscription Type."
-}
-
-variable "invoice_section_name" {
-  type        = string
-  default     = null
-  description = "(Optional) The Invoice Section Name in the above Billing Profile. Required for 'mca' Subscription Type."
-}
-
-variable "customer_name" {
-  type        = string
-  default     = null
-  description = "(Optional) The Customer Name in the above Billing Account. Required for 'mpa' Subscription Type."
+  description = "(Optional) The Subscription Type to use and the required parameters for that Subscription Type. Possible values are 'EA', 'MCA' and 'MPA'."
 }
