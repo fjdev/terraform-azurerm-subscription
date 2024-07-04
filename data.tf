@@ -19,3 +19,9 @@ data "azurerm_billing_mpa_account_scope" "mpa" {
   billing_account_name = var.subscription_type["MPA"].billing_account_name
   customer_name        = var.subscription_type["MPA"].customer_name
 }
+
+data "azurerm_subscriptions" "created" {
+  display_name_contains = var.subscription_name
+
+  depends_on = [azurerm_subscription.subscription]
+}

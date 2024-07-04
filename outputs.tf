@@ -1,5 +1,5 @@
 output "subscription_id" {
-  value       = azurerm_subscription.subscription.id
+  value       = data.azurerm_subscriptions.created.subscriptions[0].subscription_id
   description = "The Resource ID of the Alias."
 }
 
