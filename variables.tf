@@ -45,3 +45,9 @@ variable "subscription_type" {
   description = "(Optional) The Subscription Type to use and the required parameters for that Subscription Type. Possible values are 'EA', 'MCA' and 'MPA'."
   default     = null
 }
+
+variable "management_group_id" {
+  type        = string
+  description = "(Required) The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created."
+  default     = null
+}
