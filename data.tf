@@ -23,7 +23,7 @@ data "azurerm_billing_mpa_account_scope" "mpa" {
 data "azurerm_subscriptions" "created" {
   display_name_contains = var.subscription_name
 
-  depends_on = [azurerm_subscription.subscription]
+  depends_on = [azurerm_subscription.sub]
 }
 
 data "azurerm_management_group" "mg" {
