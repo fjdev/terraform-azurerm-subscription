@@ -25,3 +25,10 @@ data "azurerm_subscriptions" "created" {
 
   depends_on = [azurerm_subscription.subscription]
 }
+
+data "management_group" "mg" {
+  count = local.management_group_subscription_association
+
+  name         = var.management_group_name
+  display_name = var.management_group_display_name
+}

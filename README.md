@@ -8,6 +8,7 @@ No requirements.
 | Name | Version |
 |------|---------|
 | <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | n/a |
+| <a name="provider_management"></a> [management](#provider\_management) | n/a |
 
 ## Modules
 
@@ -23,6 +24,7 @@ No modules.
 | [azurerm_billing_mca_account_scope.mca](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/billing_mca_account_scope) | data source |
 | [azurerm_billing_mpa_account_scope.mpa](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/billing_mpa_account_scope) | data source |
 | [azurerm_subscriptions.created](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscriptions) | data source |
+| [management_group.mg](https://registry.terraform.io/providers/hashicorp/management/latest/docs/data-sources/group) | data source |
 
 ## Inputs
 
@@ -30,7 +32,8 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_alias"></a> [alias](#input\_alias) | (Optional) The Alias name for the subscription. Terraform will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created. | `string` | `null` | no |
 | <a name="input_billing_scope_id"></a> [billing\_scope\_id](#input\_billing\_scope\_id) | (Optional) The Azure Billing Scope ID. Can be a Microsoft Customer Account Billing Scope ID, a Microsoft Partner Account Billing Scope ID or an Enrollment Billing Scope ID. | `string` | `null` | no |
-| <a name="input_management_group_id"></a> [management\_group\_id](#input\_management\_group\_id) | (Required) The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created. | `string` | `null` | no |
+| <a name="input_management_group_display_name"></a> [management\_group\_display\_name](#input\_management\_group\_display\_name) | (Optional) Specifies the display name of this Management Group. | `string` | `null` | no |
+| <a name="input_management_group_name"></a> [management\_group\_name](#input\_management\_group\_name) | (Optional) Specifies the name or UUID of this Management Group. | `string` | `null` | no |
 | <a name="input_subscription_id"></a> [subscription\_id](#input\_subscription\_id) | (Optional) The ID of the Subscription. Changing this forces a new Subscription to be created. | `string` | `null` | no |
 | <a name="input_subscription_name"></a> [subscription\_name](#input\_subscription\_name) | (Required) The Name of the Subscription. This is the Display Name in the portal. | `string` | `null` | no |
 | <a name="input_subscription_type"></a> [subscription\_type](#input\_subscription\_type) | (Optional) The Subscription Type to use and the required parameters for that Subscription Type. Possible values are 'EA', 'MCA' and 'MPA'. | <pre>map(object({<br>    billing_account_name    = optional(string)<br>    enrollment_account_name = optional(string)<br>    billing_profile_name    = optional(string)<br>    invoice_section_name    = optional(string)<br>    customer_name           = optional(string)<br>  }))</pre> | `null` | no |
