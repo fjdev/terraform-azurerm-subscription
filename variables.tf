@@ -46,8 +46,14 @@ variable "subscription_type" {
   default     = null
 }
 
-variable "management_group_id" {
+variable "management_group_name" {
   type        = string
-  description = "(Required) The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created."
+  description = "(Optional) Specifies the name or UUID of this Management Group."
+  default     = null
+}
+
+variable "management_group_display_name" {
+  type        = string
+  description = "(Optional) Specifies the display name of this Management Group."
   default     = null
 }

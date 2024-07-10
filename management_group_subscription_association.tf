@@ -1,7 +1,6 @@
 resource "azurerm_management_group_subscription_association" "mgsubassoc" {
-  count = var.management_group_id != null ? 1 : 0
+  count = local.management_group_subscription_association
 
-  management_group_id = var.management_group_id
+  management_group_id = data.management_group.mg[0].id
   subscription_id     = data.azurerm_subscriptions.created.subscriptions[0].subscription_id
 }
-
