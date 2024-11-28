@@ -20,15 +20,8 @@ data "azurerm_billing_mpa_account_scope" "mpa" {
   customer_name        = var.subscription_type["MPA"].customer_name
 }
 
-data "azurerm_subscriptions" "created" {
+data "azurerm_subscriptions" "subscription" {
   display_name_contains = var.subscription_name
 
-  depends_on = [azurerm_subscription.sub]
-}
-
-data "azurerm_management_group" "mg" {
-  count = local.management_group_subscription_association
-
-  name         = var.management_group_name
-  display_name = var.management_group_display_name
+  depends_on = [azurerm_subscription.subscription]
 }
