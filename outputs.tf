@@ -1,6 +1,6 @@
 output "id" {
   description = "The ID of the Alias."
-  value       = azurerm_subscription.subscription.id
+  value       = data.azurerm_subscriptions.subscription.subscriptions[0].id
 }
 
 output "subscription_id" {
